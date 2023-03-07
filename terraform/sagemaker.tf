@@ -58,12 +58,16 @@ resource "aws_iam_role" "sagemaker_domain" {
   name               = "${local.environment}_sagemaker_excutionrole"
   path               = "/"
   assume_role_policy = data.aws_iam_policy_document.sagemaker_assume_role.json
+
+  tags = var.tags
 }
 
 resource "aws_iam_role" "sagemaker_forecast" {
   name               = "${local.environment}_sagemaker_forecastrole"
   path               = "/"
   assume_role_policy = data.aws_iam_policy_document.sagemaker_assume_role.json
+
+  tags = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "AmazonSageMakerCanvasFullAccess" {
