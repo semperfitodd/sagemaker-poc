@@ -116,7 +116,6 @@ resource "aws_sagemaker_domain" "this" {
 
       default_resource_spec {
         instance_type       = "system"
-        sagemaker_image_arn = "arn:aws:sagemaker:us-east-2:429704687514:image/jupyter-server-3"
       }
     }
 
@@ -147,7 +146,6 @@ resource "aws_sagemaker_user_profile" "this" {
 
       default_resource_spec {
         instance_type       = "system"
-        sagemaker_image_arn = "arn:aws:sagemaker:us-east-2:429704687514:image/jupyter-server-3"
       }
     }
   }
