@@ -8,7 +8,8 @@ module "data" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
-
+  control_object_ownership = true
+  object_ownership         = "ObjectWriter"
   server_side_encryption_configuration = {
     rule = {
       apply_server_side_encryption_by_default = {
@@ -30,7 +31,8 @@ module "sharing" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
-
+  control_object_ownership = true
+  object_ownership         = "ObjectWriter"
   server_side_encryption_configuration = {
     rule = {
       apply_server_side_encryption_by_default = {
