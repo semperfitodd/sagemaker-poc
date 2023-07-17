@@ -12,13 +12,14 @@ module "vpc" {
   enable_dns_hostnames                            = true
   enable_dns_support                              = true
   enable_flow_log                                 = true
-  enable_ipv6                                     = true
+  enable_ipv6                                     = false
   enable_nat_gateway                              = true
   flow_log_cloudwatch_log_group_retention_in_days = 7
   flow_log_max_aggregation_interval               = 60
   name                                            = local.environment
   one_nat_gateway_per_az                          = false
   private_subnet_suffix                           = "private"
+  public_subnet_suffix                            = "public"
   private_subnets                                 = local.private_subnets
   public_subnets                                  = local.public_subnets
   single_nat_gateway                              = true

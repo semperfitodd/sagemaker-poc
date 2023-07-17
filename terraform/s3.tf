@@ -2,7 +2,7 @@ module "data" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "~> 3.14.0"
 
-  bucket                  = "${local.environment}.data"
+  bucket                  = "${local.environment}-data"
   acl                     = "private"
   
   control_object_ownership = true
@@ -23,7 +23,7 @@ module "sharing" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "~> 3.3.0"
 
-  bucket                  = "${local.environment}.sharing"
+  bucket                  = "${local.environment}-sharing"
   acl                     = "private"
   
   control_object_ownership = true
