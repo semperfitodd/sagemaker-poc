@@ -25,16 +25,21 @@ locals {
     cidrsubnet(local.vpc_cidr, 6, 9),
   ]
 
-  environment = "mlpoc"
+  environment = "sm-mlops-test"
 
-  region = "us-east-2"
+  region = "us-east-1"
 
-  vpc_cidr = "10.10.0.0/16"
+  vpc_cidr = "10.10.0.0/24"
 
   vpc_route_tables = flatten([module.vpc.private_route_table_ids, module.vpc.public_route_table_ids])
 }
 
 variable "tags" {
   type    = map(string)
-  default = {}
+  default = {
+    team: "mlops",
+    usage: "sagemaker",
+    lob: "sbox",
+    appid: "APP-xxxx"
+  }
 }

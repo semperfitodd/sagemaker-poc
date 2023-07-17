@@ -3,7 +3,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Owner       = "Todd"
+      Owner       = "Prasad P"
       Project     = "SageMaker POC"
       Provisioner = "Terraform"
     }
