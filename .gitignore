@@ -14,5 +14,5 @@ plan.out
 
 .idea
 .iml
-
+*.hcl
 .DS_Store

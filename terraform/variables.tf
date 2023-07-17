@@ -3,28 +3,23 @@ data "aws_availability_zones" "main" {}
 locals {
   availability_zones = [
     data.aws_availability_zones.main.names[0],
-    data.aws_availability_zones.main.names[1],
-    data.aws_availability_zones.main.names[2],
+    data.aws_availability_zones.main.names[1]
   ]
 
   public_subnets = [
     cidrsubnet(local.vpc_cidr, 6, 0),
-    cidrsubnet(local.vpc_cidr, 6, 1),
-    cidrsubnet(local.vpc_cidr, 6, 2),
+    cidrsubnet(local.vpc_cidr, 6, 1)
   ]
 
   private_subnets = [
-    cidrsubnet(local.vpc_cidr, 6, 4),
-    cidrsubnet(local.vpc_cidr, 6, 5),
-    cidrsubnet(local.vpc_cidr, 6, 6),
+    cidrsubnet(local.vpc_cidr, 6, 2),
+    cidrsubnet(local.vpc_cidr, 6, 3)
   ]
 
   database_subnets = [
-    cidrsubnet(local.vpc_cidr, 6, 7),
-    cidrsubnet(local.vpc_cidr, 6, 8),
-    cidrsubnet(local.vpc_cidr, 6, 9),
+    cidrsubnet(local.vpc_cidr, 6, 4),
+    cidrsubnet(local.vpc_cidr, 6, 5)
   ]
-
   environment = "sagemaker-mlops-test"
 
   region = "us-east-1"
@@ -39,7 +34,7 @@ variable "tags" {
   default = {
     team: "mlops",
     usage: "sagemaker",
-    lob: "sboxaws",
-    appid: "APP-"xxxx
+    lob: "sboxawsai2",
+    appid: "APP-xxxx"
   }
 }
