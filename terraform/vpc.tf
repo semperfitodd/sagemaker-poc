@@ -16,7 +16,7 @@ module "vpc" {
   enable_nat_gateway                              = true
   flow_log_cloudwatch_log_group_retention_in_days = 7
   flow_log_max_aggregation_interval               = 60
-  name                                            = local.environment
+  name                                            = local.project_name
   one_nat_gateway_per_az                          = false
   private_subnet_suffix                           = "private"
   public_subnet_suffix                            = "public"

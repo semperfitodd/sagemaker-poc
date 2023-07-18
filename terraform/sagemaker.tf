@@ -55,7 +55,7 @@ resource "aws_iam_policy" "sagemaker_s3_data" {
 }
 
 resource "aws_iam_role" "sagemaker_domain" {
-  name               = "${local.environment}_sagemaker_excutionrole"
+  name               = "${local.project_name}-sagemaker-excutionrole"
   path               = "/"
   assume_role_policy = data.aws_iam_policy_document.sagemaker_assume_role.json
 
@@ -63,7 +63,7 @@ resource "aws_iam_role" "sagemaker_domain" {
 }
 
 resource "aws_iam_role" "sagemaker_forecast" {
-  name               = "${local.environment}_sagemaker_forecastrole"
+  name               = "${local.project_name}-sagemaker-forecastrole"
   path               = "/"
   assume_role_policy = data.aws_iam_policy_document.sagemaker_assume_role.json
 
@@ -91,7 +91,7 @@ resource "aws_iam_role_policy_attachment" "sagemaker_s3_data" {
 }
 
 resource "aws_sagemaker_domain" "this" {
-  domain_name = local.environment
+  domain_name = local.project_name
   auth_mode   = "IAM"
   vpc_id      = module.vpc.vpc_id
   subnet_ids  = module.vpc.private_subnets
@@ -128,7 +128,7 @@ resource "aws_sagemaker_domain" "this" {
 
 resource "aws_sagemaker_user_profile" "this" {
   domain_id         = aws_sagemaker_domain.this.id
-  user_profile_name = local.environment
+  user_profile_name = local.project_name
 
   user_settings {
     execution_role  = aws_iam_role.sagemaker_domain.arn

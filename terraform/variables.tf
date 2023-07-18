@@ -20,7 +20,8 @@ locals {
     cidrsubnet(local.vpc_cidr, 6, 4),
     cidrsubnet(local.vpc_cidr, 6, 5)
   ]
-  environment = "sagemaker-mlops"
+
+  project_name = "mlops-sagemaker"
 
   region = "us-east-1"
 
