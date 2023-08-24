@@ -35,7 +35,7 @@ variable "tags" {
   default = {
     team: "mlops",
     usage: "sagemaker",
-    lob: "sboxawsai2",
+    lob: "smaker-poc",
     appid: "APP-xxxx"
   }
 }
